@@ -1,20 +1,21 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { useInView } from "framer-motion"
-import { useRef } from "react"
-import { useBookingModal } from "@/lib/store"
-import { Check, Star } from "lucide-react"
+import { motion } from "framer-motion";
+import { useInView } from "framer-motion";
+import { useRef } from "react";
+import { useBookingModal } from "@/lib/store";
+import { Check, Star } from "lucide-react";
+import Link from "next/link";
 
 export default function PricingSection() {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: "-100px" })
-  const { openModal } = useBookingModal()
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const { openModal } = useBookingModal();
 
   const plans = [
     {
       name: "Starter",
-      price: "$2,999",
+      price: "$1,499",
       description: "Perfect for simple MVPs and landing pages",
       features: [
         "Landing page design & development",
@@ -28,7 +29,7 @@ export default function PricingSection() {
     },
     {
       name: "Pro",
-      price: "$7,999",
+      price: "$2,599",
       description: "Ideal for full-featured MVPs",
       features: [
         "Full MVP development",
@@ -38,7 +39,7 @@ export default function PricingSection() {
         "API development",
         "Payment integration",
         "3 rounds of revisions",
-        "14-day delivery",
+        "14-28 day delivery",
       ],
       popular: true,
       gradient: "from-purple-500 to-pink-500",
@@ -58,10 +59,13 @@ export default function PricingSection() {
       ],
       gradient: "from-green-500 to-teal-500",
     },
-  ]
+  ];
 
   return (
-    <section id="pricing" className="py-20 bg-gray-900 relative overflow-hidden">
+    <section
+      id="pricing"
+      className="py-20 bg-gray-900 relative overflow-hidden"
+    >
       {/* Background decoration */}
       <div className="absolute inset-0">
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl"></div>
@@ -78,10 +82,13 @@ export default function PricingSection() {
         >
           <h2 className="text-4xl md:text-6xl font-bold text-white mb-4">
             Simple, Transparent{" "}
-            <span className="bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">Pricing</span>
+            <span className="bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+              Pricing
+            </span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Choose the plan that fits your project needs and budget. No hidden fees, no surprises.
+            Choose the plan that fits your project needs and budget. No hidden
+            fees, no surprises.
           </p>
         </motion.div>
 
@@ -108,7 +115,9 @@ export default function PricingSection() {
               )}
 
               <div className="text-center mb-8">
-                <h3 className="text-2xl font-bold text-white mb-2">{plan.name}</h3>
+                <h3 className="text-2xl font-bold text-white mb-2">
+                  {plan.name}
+                </h3>
                 <div
                   className={`text-4xl font-bold mb-2 bg-gradient-to-r ${plan.gradient} bg-clip-text text-transparent`}
                 >
@@ -130,20 +139,22 @@ export default function PricingSection() {
                 ))}
               </ul>
 
-              <button
-                onClick={openModal}
-                className={`w-full py-3 px-6 rounded-xl font-semibold transition-all transform hover:scale-105 ${
-                  plan.popular
-                    ? "bg-gradient-to-r from-purple-500 to-pink-500 text-white hover:shadow-lg hover:shadow-purple-500/25"
-                    : `bg-gradient-to-r ${plan.gradient} text-white hover:shadow-lg`
-                }`}
-              >
-                Get Started
-              </button>
+              <Link href={"https://cal.com/md-sahil-2awgut"} target="_blank">
+                <button
+                  onClick={openModal}
+                  className={`w-full py-3 px-6 rounded-xl font-semibold transition-all transform hover:scale-105 ${
+                    plan.popular
+                      ? "bg-gradient-to-r from-purple-500 to-pink-500 text-white hover:shadow-lg hover:shadow-purple-500/25"
+                      : `bg-gradient-to-r ${plan.gradient} text-white hover:shadow-lg`
+                  }`}
+                >
+                  Get Started
+                </button>
+              </Link>
             </motion.div>
           ))}
         </div>
       </div>
     </section>
-  )
+  );
 }

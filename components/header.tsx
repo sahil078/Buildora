@@ -1,14 +1,12 @@
-"use client"
-
-import { useBookingModal } from "@/lib/store"
-import { scrollToSection } from "@/lib/utils"
-import { motion } from "framer-motion"
-import { Menu, X } from "lucide-react"
-import { useState } from "react"
+"use client";
+import { scrollToSection } from "@/lib/utils";
+import { motion } from "framer-motion";
+import Link from "next/link";
+import { useState } from "react";
+import { Button } from "./ui/button";
 
 export default function Header() {
-  const { openModal } = useBookingModal()
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navItems = [
     { label: "Why Us?", id: "why-us" },
@@ -16,7 +14,7 @@ export default function Header() {
     { label: "Pricing", id: "pricing" },
     { label: "Testimonials", id: "testimonials" },
     { label: "FAQs", id: "faqs" },
-  ]
+  ];
 
   return (
     <motion.header
@@ -49,18 +47,47 @@ export default function Header() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden text-gray-300 hover:text-white transition-colors"
+            className="md:hidden text-gray-300 hover:text-white transition-colors ml-44"
           >
-            {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {isMenuOpen ? (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            ) : (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              </svg>
+            )}
           </button>
 
           {/* CTA Button */}
-          <button
-            onClick={openModal}
-            className="hidden md:block bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 text-white px-6 py-2 rounded-full font-semibold hover:shadow-lg hover:shadow-purple-500/25 transition-all transform hover:scale-105"
-          >
-            Book a Call
-          </button>
+          <Link href="https://cal.com/md-sahil-2awgut" target="_blank">
+            <Button className="hidden md:block bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 text-white px-6 py-2 rounded-full font-semibold hover:shadow-lg hover:shadow-purple-500/25 transition-all transform hover:scale-105">
+              Book a Call
+            </Button>
+          </Link>
         </div>
 
         {/* Mobile Menu */}
@@ -77,26 +104,23 @@ export default function Header() {
               <button
                 key={item.id}
                 onClick={() => {
-                  scrollToSection(item.id)
-                  setIsMenuOpen(false)
+                  scrollToSection(item.id);
+                  setIsMenuOpen(false);
                 }}
                 className="block text-gray-300 hover:text-cyan-400 transition-colors font-medium"
               >
                 {item.label}
               </button>
             ))}
-            <button
-              onClick={() => {
-                openModal()
-                setIsMenuOpen(false)
-              }}
-              className="w-full bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 text-white px-6 py-2 rounded-full font-semibold"
-            >
-              Book a Call
-            </button>
+
+            <Link href={"https://cal.com/md-sahil-2awgut"} target="_blank">
+              <button className="w-full bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 text-white px-6 py-2 rounded-full font-semibold">
+                Book a Call
+              </button>
+            </Link>
           </div>
         </motion.div>
       </div>
     </motion.header>
-  )
+  );
 }

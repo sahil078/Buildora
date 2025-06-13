@@ -16,29 +16,29 @@ export default function OurWorkSection() {
       title: "FinTech MVP",
       description:
         "A modern financial dashboard with real-time analytics, secure transactions, and AI-powered insights.",
-      image: "/placeholder.svg?height=400&width=600",
+      image: "/Fintech.png",
       tags: ["React", "Node.js", "PostgreSQL", "Stripe"],
       color: "from-blue-500 to-cyan-500",
     },
     {
       title: "E-commerce Platform",
       description: "Full-featured online store with inventory management, payment processing, and advanced analytics.",
-      image: "/placeholder.svg?height=400&width=600",
-      tags: ["Next.js", "Shopify", "TailwindCSS", "Vercel"],
+      image: "/ChotuCart.png",
+      tags: ["Next.js", "TypeScript", "Zustand" , "TailwindCSS" , "Vercel"],
       color: "from-purple-500 to-pink-500",
     },
     {
       title: "SaaS Landing Page",
       description: "High-converting landing page with A/B testing that increased sign-ups by 300% in 30 days.",
-      image: "/placeholder.svg?height=400&width=600",
-      tags: ["Next.js", "Framer Motion", "Analytics", "SEO"],
+      image: "/Saas-Platform.png",
+      tags: ["Next.js", "Framer Motion", "SEO", "vercel"],
       color: "from-green-500 to-teal-500",
     },
     {
       title: "Healthcare App",
       description: "Patient management system with appointment scheduling, telemedicine, and HIPAA compliance.",
-      image: "/placeholder.svg?height=400&width=600",
-      tags: ["React Native", "Firebase", "WebRTC", "HIPAA"],
+      image: "/Healthcare.png",
+      tags: ["Next.js", "Firebase", "TailwindCSS", "Auth0"],
       color: "from-orange-500 to-red-500",
     },
   ]
@@ -127,14 +127,14 @@ export default function OurWorkSection() {
           <div className="relative">
             <button
               onClick={prevSlide}
-              className="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-gray-800/80 hover:bg-gray-700/80 text-white p-3 rounded-full backdrop-blur-sm transition-all"
+              className="absolute left-[-15px] top-1/2 -translate-y-1/2 z-20 bg-gray-800/80 hover:bg-gray-700/80 text-white p-3 rounded-full backdrop-blur-sm transition-all"
             >
               <ChevronLeft className="w-6 h-6" />
             </button>
 
             <button
               onClick={nextSlide}
-              className="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-gray-800/80 hover:bg-gray-700/80 text-white p-3 rounded-full backdrop-blur-sm transition-all"
+              className="absolute right-[-16px] top-1/2 -translate-y-1/2 z-20 bg-gray-800/80 hover:bg-gray-700/80 text-white p-3 rounded-full backdrop-blur-sm transition-all"
             >
               <ChevronRight className="w-6 h-6" />
             </button>
